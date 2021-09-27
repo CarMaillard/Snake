@@ -6,8 +6,12 @@ public class Snake : MonoBehaviour
 {
     private List<Transform> _segments = new List<Transform>();
     public Transform segmentPrefab;
-    public Vector2 direction = Vector2.right;
+
+    [SerializeField]
+    private Vector2 direction = Vector2.right;
+
     public int initialSize = 4;
+    public float speed = 2f;
 
     private void Start()
     {
@@ -57,7 +61,6 @@ public class Snake : MonoBehaviour
     {
         Transform segment = Instantiate(this.segmentPrefab);
         segment.position = _segments[_segments.Count - 1].position;
-
         _segments.Add(segment);
     }
 
